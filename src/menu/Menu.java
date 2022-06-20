@@ -2,8 +2,10 @@ package menu;
 
 import banco_de_dados.GerarBancoDeDados;
 import banco_de_dados.Manipulacao;
+import entity.Cliente;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -24,6 +26,12 @@ public class Menu {
                 case 2:
                     mostrarClientes();
                     break;
+                case 3:
+                    removerCliente();
+                    break;
+                case 4:
+                    mostrarDadosClientesSeparado();
+                    break;
                 default:
                     break;
             }
@@ -39,7 +47,6 @@ public class Menu {
         System.out.println("Digite a idade do cliente");
         String idade = input.nextLine();
         String salvaDados = nome + "\t" + cpf + "\t" + idade + "\n";
-
         File cliente = new File(banco_de_dados.GerarBancoDeDados.DB_CLIENTES + "clientes.txt");
         banco_de_dados.Manipulacao.escreverArquivo(cliente, salvaDados);
     }
@@ -47,8 +54,30 @@ public class Menu {
     public void mostrarClientes(){
         File file = new File(banco_de_dados.GerarBancoDeDados.DB_CLIENTES);
         for(File files : file.listFiles()){
-            System.out.println(files.getName().replace(".txt", ""));
             System.out.println(Manipulacao.lerArquivo(files));
         }
     }
+
+    public void removerCliente() throws Exception{
+        Scanner input = new Scanner(System.in);
+        System.out.println("Digite o cpf");
+        String cpf = input.nextLine();
+        System.out.println("Digite o nome");
+        String nome = input.nextLine();
+        String salvaDados = nome + "\t" + cpf + "\t";
+        File clientes = new File(banco_de_dados.GerarBancoDeDados.DB_CLIENTES + "clientes.txt");
+        banco_de_dados.Manipulacao.removerDadosArquivo(clientes,salvaDados);
+    }
+
+    public void mostrarDadosClientesSeparado() throws Exception{
+        File clientes = new File(banco_de_dados.GerarBancoDeDados.DB_CLIENTES + "clientes.txt");
+        String[] lines = banco_de_dados.Manipulacao.lerArquivo(clientes).split("\n");
+
+        for(String line: lines){
+            String teste = "Pedro" + "\t" + "111111111" + "\t" + "12" + "\n";
+            String mostra = line.split("\t")[0] + "\t" + line.split("\t")[1] + "\t" + line.split("\t")[2] + "\n";
+            if(mostra.equals(teste)) System.out.println(mostra);
+        }
+    }
+
 }
