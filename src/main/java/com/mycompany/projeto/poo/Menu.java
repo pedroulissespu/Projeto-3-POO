@@ -3,13 +3,13 @@ package com.mycompany.projeto.poo;
 import java.io.File;
 import javax.swing.JOptionPane;
 
-import com.mycompany.projeto.poo.filmes.AluguelDeFilme;
-import com.mycompany.projeto.poo.filmes.DevolucaoDeFilme;
+import com.mycompany.projeto.poo.films.Rent;
+import com.mycompany.projeto.poo.films.Devolution;
 import com.mycompany.projeto.poo.manipulacao.Manipulacao;
-import com.mycompany.projeto.poo.menus.MenuClientes;
-import com.mycompany.projeto.poo.menus.MenuFilmes;
-import com.mycompany.projeto.poo.menus.MenuRelatorio;
-import com.mycompany.projeto.poo.menus.MenuSugestao;
+import com.mycompany.projeto.poo.screens.menus.customers.Customers;
+import com.mycompany.projeto.poo.screens.menus.films.Films;
+import com.mycompany.projeto.poo.screens.menus.report.Report;
+import com.mycompany.projeto.poo.screens.menus.suggestion.Suggestion;
 
 public class Menu extends javax.swing.JFrame {
 
@@ -140,14 +140,14 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoSugestoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSugestoesActionPerformed
-        MenuSugestao menuSugestao = new MenuSugestao();
+        Suggestion menuSugestao = new Suggestion();
         menuSugestao.setVisible(true);
         menuSugestao.setTitle("Sugestão de Filme");
         menuSugestao.setLocationRelativeTo(null);
     }//GEN-LAST:event_botaoSugestoesActionPerformed
 
     private void botaoClientesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoClientesActionPerformed
-        MenuClientes menuClientes = new MenuClientes();
+        Customers menuClientes = new Customers();
         menuClientes.setVisible(true);
         menuClientes.setTitle("Área do Cliente");
         menuClientes.setLocationRelativeTo(null);
@@ -158,14 +158,14 @@ public class Menu extends javax.swing.JFrame {
     }// GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoFilmesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoFilmesActionPerformed
-        MenuFilmes menuFilmes = new MenuFilmes();
+        Films menuFilmes = new Films();
         menuFilmes.setVisible(true);
         menuFilmes.setTitle("Área do Filme");
         menuFilmes.setLocationRelativeTo(null);
     }// GEN-LAST:event_botaoFilmesActionPerformed
 
     private void botaoAlugarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAlugarActionPerformed
-        AluguelDeFilme aluguelDeFilme = new AluguelDeFilme();
+        Rent aluguelDeFilme = new Rent();
         aluguelDeFilme.setVisible(true);
         aluguelDeFilme.setTitle("Alugar Filmes");
         aluguelDeFilme.setLocationRelativeTo(null);
@@ -178,7 +178,7 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane,
                     "Faça o aluguel de filme pelo menos de 1 cliente para usar tal opção");
         } else {
-            DevolucaoDeFilme devolucaoDeFilme = new DevolucaoDeFilme();
+            Devolution devolucaoDeFilme = new Devolution();
             devolucaoDeFilme.setVisible(true);
             devolucaoDeFilme.setTitle("Devolução de Filme");
             devolucaoDeFilme.setLocationRelativeTo(null);
@@ -186,7 +186,7 @@ public class Menu extends javax.swing.JFrame {
     }// GEN-LAST:event_botaoDevolucaoActionPerformed
 
     private void botaoRelatorioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoRelatorioActionPerformed
-        MenuRelatorio menuRelatorio = new MenuRelatorio();
+        Report menuRelatorio = new Report();
         menuRelatorio.setVisible(true);
         menuRelatorio.setTitle("Menu de Relátorios");
         menuRelatorio.setLocationRelativeTo(null);

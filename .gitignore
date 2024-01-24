@@ -1,0 +1,9 @@
+# Directories
+
+target
+.idea
+DIRETORIO_GERAL
+
+# Type of files
+
+*.form
